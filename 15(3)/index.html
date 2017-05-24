@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>第十五次作业</title>
+		<link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/css1.css"/>
+	</head>
+	<body>
+		<div>
+		<header>
+			<a href="index.html" class="logo">
+				<img src="img/recast.ai.svg"/>
+			</a>
+			<nav>
+				<ul class="clearfix">
+					<li><a href="#">关于</a></li>
+					<li><a href="#">工作</a></li>
+					<li><a href="#">联系</a></li>
+				</ul>
+			</nav>
+			<h2>hello,我是娄文依</h2>
+			<p>我对一切未知充满好奇。</p>
+			<p>浙江邮电职业技术学院学生。</p>
+			<p>让我们一起来畅游前端的世界。</p>
+		</header>
+		<main>
+			<section class="favContainer">
+			<h2>我的兴趣</h2>
+			<ul class="fav clearfix">
+				<li><a href="#">RWD</a></li>
+				<li><a href="#">Sass</a></li>
+				<li><a href="#">看书</a></li>
+				<li><a href="#">Less</a></li>
+				<li><a href="#">Grid</a></li>
+				<li><a href="#">Flexbox</a></li>
+				<li><a href="#">听音乐</a></li>
+				<li><a href="#">看电影</a></li>
+			</ul>
+			</section>
+		<section class="workContainer">
+		     <a id="b"></a>
+		     <h2>项目示例</h2>
+		     <div class="work clearfix">
+		     	<figure class="work">
+		     		<figcaption>代表项目</figcaption>
+		     		<img src="img/office.jpg" alt="" />
+		     	</figure>
+		     	<figure class="work">
+		     		<figcaption>代表项目</figcaption>
+		     		<img src="img/office.jpg" alt="" />
+		     	</figure>
+		     	<figure class="work">
+		     		<figcaption>代表项目</figcaption>
+		     		<img src="img/office.jpg" alt="" />
+		     	</figure>
+		     	<figure class="work">
+		     		<figcaption>代表项目</figcaption>
+		     		<img src="img/office.jpg" alt="" />
+		     	</figure>
+		     	<figure class="work">
+		     		<figcaption>代表项目</figcaption>
+		     		<img src="img/office.jpg" alt="" />
+		     	</figure>
+		     	<figure class="work">
+		     		<figcaption>代表项目</figcaption>
+		     		<img src="img/office.jpg" alt="" />
+		     	</figure>
+		     </div>
+		</section>
+		<section class="contactContainer">
+			<a id="c"></a>
+			<h2>联系我们</h2>
+			<p>希望大家可以通过广泛的交流互动，实现共同提高！！期待您的回复！！</p>
+			<dl>
+				<dt>邮箱</dt>
+				<dd>491730254@qq.com</dd>
+				<dt>QQ</dt>
+				<dd>491730254</dd>
+			</dl>
+			<div class="contact">
+				<input type="text" name="name" id="name" placeholder="名字" />
+				<input type="text" name="name" id="name" placeholder="邮箱" />
+				<select name="fav" id="fav">
+					<option value="fav">兴趣</option>
+					<option value="web">网页开发</option>
+					<option value="app">应用开发</option>
+					<option value="html5">html5开发</option>
+					<option value="chat">微信开发</option>
+				</select>
+				<textarea name="message" id="message" placeholder="留言"></textarea>
+				<input type="submit" name="submit" id="submit" value="提交信息" />
+			</div>
+		</section>
+		</main>
+		<footer>
+			<p>&hearts; 非常感谢！</p>
+			<a id="goTop" href="#">&uarr;</a>
+			<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+			<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<script type="text/javascript">
+			$(function() {
+				$('header a, .rightNav a').on('click', function(e) {
+					e.preventDefault();
+					$('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500);
+					
+				});
+				$('#goTop').on('click', function(e) {
+					e.preventDefault();
+					$('html, body').animate({ scrollTop: 0}, 500);
+				});
+			});
+			</script>
+		</footer>
+		</div>
+	</body>
+</html>
