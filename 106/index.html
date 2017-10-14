@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: burlywood;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="num">123456789</h1>
+		<h2 id="letter">ABCDEFGHIJ</h2>
+		<script type="text/javascript">
+			var oNum=document.getElementById("num");
+			var oLetter=document.getElementById("letter");			
+			var num=oNum.innerText;
+			var letter=oLetter.innerText;
+			var i=0;
+			oNum.innerText="";
+			function type () {
+				if(i<num.length){
+					oNum.innerText+=num[i];
+				i++;}
+			}
+			oLetter.innerHTML="";
+			var x=0;
+			function gundong () {
+				if(x<letter.length)
+				oLetter.innerText+=letter[x];
+				else{
+					x=-1;
+					oLetter.innerHTML="";
+				}
+			x++;}
+			setInterval(type,1000);
+			setInterval(gundong,100);
+		</script>
+	</body>
+</html>
