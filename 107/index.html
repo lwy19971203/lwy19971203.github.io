@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#btn{
+				width: 603px;
+				height: 200px;
+				margin: auto;
+				margin-top: 10px;
+			}
+			#h1{
+				width: 300px;
+				height: 50px;
+				margin: auto;
+				color: purple;
+			    margin-top: 20px;
+			}
+			input{
+				width: 100px;
+				height: 50px;
+				margin-right: 47px;
+				margin-bottom: 20px;
+				border: none;
+				outline: 0;
+				background-color: pink;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h1 id="h1"></h1>
+		<div id="btn">
+			<input type="button" id="" value=" 1" />
+			<input type="button" id="" value=" 2" />
+			<input type="button" id="" value=" 3" />
+			<input type="button" id="" value=" 4" />
+			<input type="button" id="" value=" 5" />
+			<input type="button" id="" value=" 6" />
+			<input type="button" id="" value=" 7" />
+			<input type="button" id="" value=" 8" />
+		</div>
+		<script type="text/javascript">
+			var OBtnList=document.querySelectorAll("#btn input");
+			var Oh1=document.getElementById("h1");
+			var i;
+			for(i=0;i<OBtnList.length;i++){
+				OBtnList[i].addEventListener("click",(function(index){
+					return function(){
+						Oh1.innerHTML="你点击了 "+index+"按钮"
+					 };
+				   }(i+1)
+				 )	
+				);
+			}
+
+		</script>
+	</body>
+</html>
