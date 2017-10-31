@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>放大镜效果</title>
+		<style type="text/css">
+			body{
+				min-height: 1000px;
+			}
+			#abc{
+				width: 400px;
+				position: absolute;
+				left: 600px;
+				top: 200px;
+				overflow: hidden;
+			}
+			#abc img{
+				width: 100%;
+			}
+			#abc #son{
+				width: 200px;
+				height: 200px;
+				background: url(img/1.jpg);
+				border-radius:100% ;
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform: translate(-50%,-50%) scale(0);
+				pointer-events: none;
+				opacity: 0;
+			}
+			#abc:hover #son{
+				opacity: 1;
+				transform: translate(-50%,-50%) scale(1);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="abc">
+			<img src="img/1.jpg"/>
+			<div id="son"></div>
+		</div>
+		<script type="text/javascript">
+		    var oAbc=document.getElementById("abc");
+		    var oSon=document.getElementById("son");
+		    var oImg=oAbc.querySelector('img');
+		    var ratio;
+		    oImg.addEventListener('load',function(){
+		    	ratio=oImg.naturalWidth/oImg.width;
+		    })
+			oAbc.addEventListener("mousemove",function(){
+                var x=event.offsetX||event.layerX;
+                var y=event.offsetY||event.layerY;
+                oSon.style.left=x+"px";
+                oSon.style.top=y+"px";
+                oSon.style.backgroundPosition=(-x*ratio+100)+"px "+(-y*ratio+100)+"px"
+			});
+		</script>
+	</body>
+</html>
