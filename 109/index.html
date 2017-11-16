@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <style type="text/css">
+        	body {
+        		font-family: 'Roboto';
+        		color: #fff;
+        	}
+        	*{
+        		margin: 0;
+        		padding: 0;
+        	}
+        	.title-menu {
+        		height: 70px;
+        		z-index: 10;
+        		top: 0;
+        		left: 0;
+        		position: fixed;
+        		width: 100%;
+        		background-color: #ff69b4;
+        		box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+        	}
+        	.title {
+        		font-size:24px ;
+        	}
+        	.button{
+        		transform: none;
+        		cursor: pointer;
+        		padding: 1em;
+        		transition: .3s;
+        	}
+        	.sonmennu {
+        		display: none;
+        	}
+        	.sonmennu-item {
+        		list-style: none;
+        		left: -32px;
+        		background-color: #FFB6C1;
+        	}
+        	.father-menu{
+        		display: none;
+        		width: 300px;
+        		position: absolute;
+        		left: 0;
+        		top: 70px;
+        		box-shadow: 2px 0px 5px rgba(0, 0, 0, .26);
+        		height: 100vh;
+        		background-color: #FFC0CB;
+        	}
+        	.menu {
+        		cursor: pointer;
+        		list-style: none;
+        	}
+        	.menu li {
+        		background-color: #FFC0CB;
+        		padding: 1em 2em;
+        	}
+        	.item-menu {
+        		font-size: 18px;
+        		color: #fff;
+        		text-decoration: none;
+        	}
+        	.fa-angle-right {
+        		padding-left: .3em;
+        	}
+        </style>
+	</head>
+	<body>
+		<div class="title-menu">
+			<div class="title">
+				<i class="fa fa-bars button" id='button' aria-hidden="true"></i>
+				Menu
+			</div>
+		</div>
+		<div class="father-menu" id="father-menu">
+			<ul class="menu" id="menu">
+				<li class='item'><a href="#" class='item-menu'>Item 1</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+					<ul class="sonmennu">
+						<li class='sonmennu-item'>sub-item 1</li>
+						<li class='sonmennu-item'>sub-item 2</li>
+						<li class='sonmennu-item'>sub-item 3</li>
+					</ul>
+				</li>
+				<li class='item'><a href="#" class='item-menu'>Item 2</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+					<ul class="sonmennu">
+						<li class='sonmennu-item'>sub-item 1</li>
+						<li class='sonmennu-item'>sub-item 2</li>
+						<li class='sonmennu-item'>sub-item 3</li>
+					</ul>
+				</li>
+				<li class='item'><a href="#" class='item-menu'>Item 3</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+					<ul class="sonmennu">
+						<li class='sonmennu-item'>sub-item 1</li>
+						<li class='sonmennu-item'>sub-item 2</li>
+						<li class='sonmennu-item'>sub-item 3</li>
+					</ul>
+				</li>
+				<li class='item'><a href="#" class='item-menu'>Item 4</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+					<ul class="sonmennu">
+						<li class='sonmennu-item'>sub-item 1</li>
+						<li class='sonmennu-item'>sub-item 2</li>
+						<li class='sonmennu-item'>sub-item 3</li>
+					</ul>
+				</li>
+				<li class='item'><a href="#" class='item-menu'>Item 5</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+					<ul class="sonmennu">
+						<li class='sonmennu-item'>sub-item 1</li>
+						<li class='sonmennu-item'>sub-item 2</li>
+						<li class='sonmennu-item'>sub-item 3</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var button = document.getElementById("button");
+			var FatherMenu = document.getElementById("father-menu");
+			var menu = document.getElementById("menu");
+			var open = false;
+			var menuLink = document.getElementsByClassName("item-menu");
+			var item = document.getElementsByClassName("item");
+			var sonmenu = document.getElementsByClassName("sonmennu");
+			var arrow = document.getElementsByClassName("fa-angle-right");
+			button.onclick = function() {
+				button.style.transform = "rotate(90deg)";
+				if (open === false) {
+					open = true;
+					FatherMenu.style.display = "block";
+				} else {
+					open = false;
+					button.style.transform = "none";
+					FatherMenu.style.display = "none";
+				}
+			};
+			menu.addEventListener(
+				"click",
+				function(e) {
+					var p = e.target.parentElement;
+					console.log(p)
+					var index = Array.prototype.indexOf.call(p.children, e.target);
+					if (e.target.className === "item" || e.target.className === "item open") {
+						if (item[index].className === "item") {
+							item[index].className += " open";
+							sonmenu[index].style.display = "block";
+							arrow[index].style.transform = "rotate(90deg)";
+						} else {
+							item[index].className = "item";
+							sonmenu[index].style.display = "none";
+							arrow[index].style.transform = "none";
+						}
+					}
+				},
+				false
+			);
+		</script>
+	</body>
+</html>
